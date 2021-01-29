@@ -1,5 +1,5 @@
 <template>
-  <button class="addTodo">
+  <button @click="showForm" class="addTodo">
     {{text}}
   </button>
 </template>
@@ -9,6 +9,12 @@ export default {
   name: 'HelloWorld',
   props: {
     text: String
+  },
+  methods: {
+    showForm () {
+      console.log('ok')
+      this.$store.dispatch('showForm')
+    }
   }
 }
 </script>

@@ -1,19 +1,22 @@
 <template>
-  <button @click="showForm" class="addTodo">
+  <button @click="addTodo" class="addTodo">
     {{text}}
   </button>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'addTodoButton',
   props: {
     text: String
   },
   methods: {
-    showForm () {
-      console.log('ok')
-      this.$store.dispatch('showForm')
+    addTodo () {
+      const tasksList = {
+        _id: Math.random(1000),
+        title: 'New Tasks List'
+      }
+      this.$store.dispatch('addNewTasksList', tasksList)
     }
   }
 }

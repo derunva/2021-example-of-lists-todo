@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <TaskForm v-show="showTaskForm"/>
+    <TasksList v-for="tasksList in tasksLists" :key="tasksList._id"/>
     <AddTodo :text="buttonText"/>
   </div>
 </template>
@@ -9,14 +9,14 @@
 <script>
 // @ is an alias to /src
 import AddTodo from '@/components/AddTodo.vue'
-import TaskForm from '@/components/TaskForm.vue'
+import TasksList from '@/components/TasksList.vue'
 
 import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
     AddTodo,
-    TaskForm
+    TasksList
   },
   data () {
     return {
@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     ...mapState([
-      'showTaskForm'
+      'tasksLists'
     ])
   }
 }

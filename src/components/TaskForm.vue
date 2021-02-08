@@ -1,7 +1,6 @@
-<template lang="html">
+<template lang="pug">
   <form>
-    <div class="plus-icon">
-    </div>
+    font-awesome-icon(icon="plus")
     <input type="text">
     <button>{{ buttonText }}</button>
   </form>
@@ -17,5 +16,15 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="sass" scoped>
+form
+  svg
+    margin-right: 10px
+    color: green
+  display: flex
+  padding: 10px
+  background: #ccc
+  background: linear-gradient(0deg, #ccc 0%, #aaa 100%)
+  input
+    flex: 1 1 auto
 </style>

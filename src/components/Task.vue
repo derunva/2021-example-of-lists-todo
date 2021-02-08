@@ -22,7 +22,7 @@ import ContentEditable from '@/components/ContentEditable'
 export default {
   data () {
     return {
-      isDone: true,
+      isDone: false,
       content: 'My Title',
       focusTrigger: false
     }
@@ -47,13 +47,16 @@ $yellow: #F0E68C
   align-items: center
   padding: 10px 15px
   &--title
-    font-size: 2rem
+    font-size: 1rem
     font-weight: bold
   &.isDone
     text-decoration: line-through
   &--options
     margin-left: auto
     display: none
+    svg
+      margin-left: 10px
+      cursor: pointer
   &:hover
     background: $yellow
     .task--options

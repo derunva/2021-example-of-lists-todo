@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <TasksList v-for="tasksList in tasksLists" :key="tasksList._id"/>
+    <transition-group name="list">
+      <TasksList v-for="tasksList in tasksLists" :key="tasksList._id"/>
+    </transition-group>
     <AddTodo :text="buttonText"/>
   </div>
 </template>
@@ -30,3 +31,12 @@ export default {
   }
 }
 </script>
+<style>
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+</style>

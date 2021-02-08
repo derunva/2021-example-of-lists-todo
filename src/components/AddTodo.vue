@@ -1,6 +1,7 @@
-<template>
+<template lang="pug">
   <button @click="addTodo" class="addTodo">
-    {{text}}
+    font-awesome-icon(icon="plus")
+    |{{text}}
   </button>
 </template>
 
@@ -23,19 +24,17 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped lang="sass">
+$blueLight: #39B7CD
+$blueDark: #53868B
+.addTodo
+  svg
+    margin-right: .5em
+    font-size: .9em
+  font-weight: bold
+  color: #fff
+  font-size: 1.2rem
+  padding: .5em .7em
+  background: $blueLight
+  background: linear-gradient(0deg, $blueDark 0%, $blueLight 100%)
 </style>

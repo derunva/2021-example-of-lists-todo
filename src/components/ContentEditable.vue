@@ -2,7 +2,8 @@
   <div
     ref="element"
     :contenteditable="editable"
-    @click="doEditable"
+    @focus="rememberOldVal"
+    @keyup.esc="discardChanges"
   >
     {{content}}
   </div>
@@ -13,7 +14,8 @@ export default {
   props: ['content', 'focusTrigger'],
   data () {
     return {
-      editable: true
+      editable: true,
+      oldVal: ''
     }
   },
   watch: {
@@ -23,6 +25,14 @@ export default {
     }
   },
   methods: {
+    rememberOldVal () {
+      this.oldVal = this.content
+    },
+    discardChanges () {
+      console.log('make with vuex')
+      this.$refs.element.blur()
+      // vuex
+    },
     setCaret () {
       var el = this.$refs.element
       var range = document.createRange()
@@ -32,9 +42,6 @@ export default {
 
       sel.removeAllRanges()
       sel.addRange(range)
-    },
-    doEditable () {
-      this.editable = true
     }
   }
 }

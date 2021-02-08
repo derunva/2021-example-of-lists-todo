@@ -8,10 +8,12 @@ import {
   faThList,
   faMinusCircle,
   faPencilAlt,
-  faSort
+  faSort,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+library.add(faPlus)
 library.add(faSort)
 library.add(faThList)
 library.add(faMinusCircle)

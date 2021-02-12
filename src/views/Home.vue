@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <transition-group name="list">
-      <TasksList v-for="tasksList in tasksLists" :key="tasksList._id"/>
+      <TasksList v-for="tasksList in tasksLists" :item="tasksList" :key="tasksList._id"/>
     </transition-group>
     <AddTodo :text="buttonText"/>
   </div>

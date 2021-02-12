@@ -4,7 +4,7 @@
       checkbox(v-model="isDone")
     ContentEditable.task--title(
         :focusTrigger="focusTrigger"
-        :content="content"
+        :content="task"
     )
     .task--options
       font-awesome-icon(icon="sort")
@@ -20,6 +20,7 @@ import checkbox from '@/components/Checkbox'
 import ContentEditable from '@/components/ContentEditable'
 
 export default {
+  props: ['task'],
   data () {
     return {
       isDone: false,

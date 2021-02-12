@@ -1,15 +1,25 @@
 <template lang="pug">
-  <form>
+  <form @submit.prevent="addTask">
     font-awesome-icon(icon="plus")
-    <input type="text">
+    <input v-model="taskTitle" type="text">
     <button>{{ buttonText }}</button>
   </form>
 </template>
 
 <script>
 export default {
+  methods: {
+    addTask () {
+      this.$store.dispatch('addTask', {
+        listId: this.listId,
+        taskTitle: this.taskTitle
+      })
+    }
+  },
+  props: ['listId'],
   data () {
     return {
+      taskTitle: '',
       buttonText: 'Add task'
     }
   }

@@ -15,7 +15,8 @@ export default {
     addTodo () {
       const tasksList = {
         _id: Math.random(1000),
-        title: 'New Tasks List'
+        title: 'New Tasks List',
+        tasks: []
       }
       this.$store.dispatch('addNewTasksList', tasksList)
     }

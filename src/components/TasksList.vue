@@ -1,11 +1,9 @@
 <template lang="pug">
   .tasks
     TasksListHeader
-    TaskForm
+    TaskForm(:listId="item._id")
     .tasks--list
-      Task
-      Task
-      Task
+      Task(v-for="task in item.tasks" :task="task")
 </template>
 
 <script>
@@ -14,6 +12,7 @@ import TaskForm from '@/components/TaskForm'
 import Task from '@/components/Task'
 
 export default {
+  props: ['item'],
   components: {
     TasksListHeader,
     TaskForm,
